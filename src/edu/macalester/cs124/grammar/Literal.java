@@ -8,15 +8,28 @@ public class Literal implements Substitution {
     /**
      * @param value The output of this generator.
      */
+	
+	private String value;
+	
     public Literal(String value) {
-        throw new UnsupportedOperationException("Literal.Literal() not implemented yet"); // TODO
+    	this.value = value;
     }
     
     /**
-     * Appends this literal’s value to the content’s result.
+     * Appends this literal's value to the context's result.
      */
     @Override
     public void generate(GeneratorContext context) {
-        throw new UnsupportedOperationException("Literal.generate() not implemented yet"); // TODO
+    	context.getResult().append(value);
     }
 }
+
+
+
+
+//   Substitution pope = new Literal("POPE");
+// ...
+//pope.generate(context);   // <-- appends "POPE" to the result
+//pope.generate(context);   // <-- appends "POPE" to the result
+//pope.generate(context);   // <-- appends "POPE" to the result
+

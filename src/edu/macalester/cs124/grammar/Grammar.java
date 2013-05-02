@@ -1,5 +1,8 @@
 package edu.macalester.cs124.grammar;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  * A context-free grammar, suitable for generating pleasing nonsense. A grammar contains a set of string symbols,
@@ -15,8 +18,17 @@ public class Grammar {
      * 
      * @param symbol  The lookup key for the symbol (e.g. “person” in the example at the top of this class)
      */
+	private Map<String, Choice> choiceMap = new HashMap<String,Choice>();
+	
     public Choice substitutionForSymbol(String symbol) {
-        throw new UnsupportedOperationException("Grammar.substitutionForSymbol() not implemented yet"); // TODO
+    	if (choiceMap.containsKey(symbol)) {
+    		return choiceMap.get(symbol);
+    	}
+    	else {
+    		Choice choice = new Choice();
+    		choiceMap.put(symbol, choice);
+    		return choice;
+    	}
     }
     
     /**
